@@ -57,21 +57,7 @@
         }
       }
       var OneTrust = overrideOneTrustGeo() || undefined;
-    </script>
-            <span class="ot-sdk-show-settings" style="display: none"></span>
-        <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-language="it-IT" data-domain-script="6fcce6c3-f1fd-40b8-b4a4-105dc471be5a" data-ignore-ga='true' defer></script>
-        <script>var isCountryCookiesActiveByDefault=false,CONSENT_ANALYTICS_GROUP="C0002",CONSENT_PERSONALIZATION_GROUP="C0003",CONSENT_TARGETED_ADVERTISING_GROUP="C0004",CONSENT_SOCIAL_MEDIA_GROUP="C0005",cookieConsentContent='',hideCookieConsentLayer= '', OptanonAlertBoxClosed='';hideCookieConsentLayer=getCookie('hideCookieConsentLayer');OptanonAlertBoxClosed=getCookie('OptanonAlertBoxClosed');if(hideCookieConsentLayer==="1"||Boolean(OptanonAlertBoxClosed)){cookieConsentContent=queryStringToJSON(getCookie('OptanonConsent')||'');}function getCookie(e){var o=document.cookie.match("(^|;)\\s*"+e+"\\s*=\\s*([^;]+)");return o?unescape(o.pop()):null}function queryStringToJSON(e){var o=e.split("&"),t={};return o.forEach(function(e){e=e.split("="),t[e[0]]=decodeURIComponent(e[1]||"")}),JSON.parse(JSON.stringify(t))}function isCookieGroupAllowed(e){var o=cookieConsentContent.groups;if("string"!=typeof o){if(!isCountryCookiesActiveByDefault && e===CONSENT_ANALYTICS_GROUP && getCookie('hideCookieConsentLayer')==="1"){return true}return isCountryCookiesActiveByDefault;}for(var t=o.split(","),n=0;n<t.length;n++)if(t[n].indexOf(e,0)>=0)return"1"===t[n].split(":")[1];return!1}function userHasAcceptedTheCookies(){var e=document.getElementsByTagName("body")[0],o=document.createEvent("HTMLEvents");cookieConsentContent=queryStringToJSON(getCookie("OptanonConsent")||""),!0===isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP)&&(o.initEvent("analyticsCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_PERSONALIZATION_GROUP)&&(o.initEvent("personalizationCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP)&&(o.initEvent("targetedAdvertisingCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_SOCIAL_MEDIA_GROUP)&&(o.initEvent("socialMediaAdvertisingCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o))}</script>
-    <script>
-      document.getElementsByTagName('body')[0].addEventListener('oneTrustLoaded', function () {
-        if (OneTrust.GetDomainData()?.ConsentModel?.Name === 'notice only') {
-          const cookiePolicyLinkSelector = document.querySelectorAll('.ot-sdk-show-settings')
-          cookiePolicyLinkSelector.forEach((selector) => {
-            selector.style.display = 'none'
-          })
-        }
-      })
-    </script>
-    <script>
+   
         function CMP() {
             var body = document.getElementsByTagName('body')[0];
             var event = document.createEvent('HTMLEvents');

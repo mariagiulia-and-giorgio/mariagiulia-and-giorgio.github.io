@@ -15,6 +15,31 @@
 <link rel="stylesheet" href="https://cdn1.matrimonio.com/css/css-symfnw-IT73-1-20231107-014_www_m_-phoenix/base.css">
 <link rel="stylesheet" href="https://cdn1.matrimonio.com/css/css-symfnw-IT73-1-20231107-014_www_m_-lib/swiper/css/swiper_dash_5_dash_3_dash_6.min,phoenix/sprite_set_websites_black_font,migrate/migrate,phoenix/wedsites.css">
         <script>
+    let counter = 2; // Initial counter value for dynamic field names
+
+    function addTextField() {
+        // Create a new text field
+        const newTextField = document.createElement('div');
+        newTextField.className = 'websiteTextfield textfield';
+
+        const inputField = document.createElement('input');
+        inputField.className = 'textfield__input';
+        inputField.type = 'text';
+        inputField.maxLength = 120;
+        inputField.name = 'nome' + counter;
+        inputField.placeholder = 'Nome Persona ' + counter;
+        inputField.setAttribute('data-redesign', 'redesign');
+
+        newTextField.appendChild(inputField);
+
+        // Append the new text field to the container
+        document.getElementById('textFieldsContainer').appendChild(newTextField);
+
+        // Increment the counter for the next text field
+        counter++;
+    }
+</script>
+		<script>
             var internalTrackingService = internalTrackingService || {
                 triggerSubmit : function() {},
                 triggerAbandon : function() {},
@@ -56,21 +81,7 @@
         }
       }
       var OneTrust = overrideOneTrustGeo() || undefined;
-    </script>
-            <span class="ot-sdk-show-settings" style="display: none"></span>
-        <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-language="it-IT" data-domain-script="6fcce6c3-f1fd-40b8-b4a4-105dc471be5a" data-ignore-ga='true' defer></script>
-        <script>var isCountryCookiesActiveByDefault=false,CONSENT_ANALYTICS_GROUP="C0002",CONSENT_PERSONALIZATION_GROUP="C0003",CONSENT_TARGETED_ADVERTISING_GROUP="C0004",CONSENT_SOCIAL_MEDIA_GROUP="C0005",cookieConsentContent='',hideCookieConsentLayer= '', OptanonAlertBoxClosed='';hideCookieConsentLayer=getCookie('hideCookieConsentLayer');OptanonAlertBoxClosed=getCookie('OptanonAlertBoxClosed');if(hideCookieConsentLayer==="1"||Boolean(OptanonAlertBoxClosed)){cookieConsentContent=queryStringToJSON(getCookie('OptanonConsent')||'');}function getCookie(e){var o=document.cookie.match("(^|;)\\s*"+e+"\\s*=\\s*([^;]+)");return o?unescape(o.pop()):null}function queryStringToJSON(e){var o=e.split("&"),t={};return o.forEach(function(e){e=e.split("="),t[e[0]]=decodeURIComponent(e[1]||"")}),JSON.parse(JSON.stringify(t))}function isCookieGroupAllowed(e){var o=cookieConsentContent.groups;if("string"!=typeof o){if(!isCountryCookiesActiveByDefault && e===CONSENT_ANALYTICS_GROUP && getCookie('hideCookieConsentLayer')==="1"){return true}return isCountryCookiesActiveByDefault;}for(var t=o.split(","),n=0;n<t.length;n++)if(t[n].indexOf(e,0)>=0)return"1"===t[n].split(":")[1];return!1}function userHasAcceptedTheCookies(){var e=document.getElementsByTagName("body")[0],o=document.createEvent("HTMLEvents");cookieConsentContent=queryStringToJSON(getCookie("OptanonConsent")||""),!0===isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP)&&(o.initEvent("analyticsCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_PERSONALIZATION_GROUP)&&(o.initEvent("personalizationCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP)&&(o.initEvent("targetedAdvertisingCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_SOCIAL_MEDIA_GROUP)&&(o.initEvent("socialMediaAdvertisingCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o))}</script>
-    <script>
-      document.getElementsByTagName('body')[0].addEventListener('oneTrustLoaded', function () {
-        if (OneTrust.GetDomainData()?.ConsentModel?.Name === 'notice only') {
-          const cookiePolicyLinkSelector = document.querySelectorAll('.ot-sdk-show-settings')
-          cookiePolicyLinkSelector.forEach((selector) => {
-            selector.style.display = 'none'
-          })
-        }
-      })
-    </script>
-    <script>
+    
         function CMP() {
             var body = document.getElementsByTagName('body')[0];
             var event = document.createEvent('HTMLEvents');
@@ -311,28 +322,18 @@
         <div class="websiteContactUsSection websiteBox websiteComment__box">
             <form class="app-website-contact-form"
                   action="https://formspree.io/f/xgejdjbq" method="post">
-                
+                <div id="textFieldsContainer">
                 <div class="websiteTextfield textfield">
                     <input class="textfield__input" type="text" maxlength="80" name="nome1"
                            placeholder="Nome Persona 1" data-redesign="redesign"
                            value="">
                 </div>
-                <div class="websiteTextfield textfield">
-                    <input class="textfield__input" type="email" maxlength="120" name="nome2"
-                           placeholder="Nome Persona 2" data-redesign="redesign"
-                           value="">
-                </div>
-                <div class="websiteTextfield textfield">
-                    <input class="textfield__input" type="text" maxlength="120" name="nome3"
-                           placeholder="Nome Persona 3" data-redesign="redesign">
-                </div>
+				</div>
+                <button type="button"  class="app-contrast-color btnFlat btnFlat--full mt5" style="background-color:orange"  onclick="addTextField()">ADD</button>
+				<hr></hr>
 				<div class="websiteTextfield textfield">
-                    <input class="textfield__input" type="text" maxlength="120" name="nome4"
-                           placeholder="Nome Persona 4" data-redesign="redesign">
-                </div>
-                <div class="websiteTextfield textfield">
-                    <textarea class="textfield__input" rows="4" name="commento"
-                              placeholder="Commenti/Segnalazioni" data-redesign="redesign"></textarea>
+                    <textarea class="textfield__input" rows="4" name="Note"
+                              placeholder="Note" data-redesign="redesign"></textarea>
                 </div>
                 <button class="app-website-contact-send app-contrast-color btnFlat btnFlat--full mt5" data-color="secondaryColorBtnFlat" type="submit">
                     Invia Conferma                </button>
