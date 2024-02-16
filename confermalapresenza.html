@@ -335,8 +335,12 @@
                     <textarea class="textfield__input" rows="4" name="Note"
                               placeholder="Note" data-redesign="redesign"></textarea>
                 </div>
-                <button class="app-website-contact-send app-contrast-color btnFlat btnFlat--full mt5" data-color="secondaryColorBtnFlat" type="submit">
+                <button class="app-website-contact-send app-contrast-color btnFlat btnFlat--full mt5" data-color="secondaryColorBtnFlat" onclick="showPopup()" type="submit">
                     Invia Conferma                </button>
+				<div id="popup" class="popup">
+					<p>Grazie per la tua conferma!</p>
+					<button class="app-website-contact-send app-contrast-color btnFlat btnFlat--full mt5" data-color="secondaryColorBtnFlat" onclick="closePopup()">OK</button>
+				</div>
             </form>
         </div>
     </div>
@@ -370,7 +374,38 @@
 </div>
 
 
+<style>
+        /* Style for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+    </style>
+<script>
+    // JavaScript function to show the popup
+    function showPopup() {
+        // Show the popup
+        document.getElementById('popup').style.display = 'block';
 
+        // You can also perform other actions or submit the form if needed
+        // For example, uncomment the line below to submit the form
+        // document.getElementById('myForm').submit();
+    }
+
+    // JavaScript function to close the popup
+    function closePopup() {
+        // Hide the popup
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
 
 
 
